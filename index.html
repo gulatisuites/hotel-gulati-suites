@@ -95,7 +95,7 @@
         }
 
         .logo {
-            font-size: 1.35rem;
+            font-size: 1.65rem;
             font-weight: 800;
             color: var(--navy);
             letter-spacing: -0.02em;
@@ -153,7 +153,7 @@
             max-width: 480px;
         }
 
-        .hero-content .eyebrow { color: var(--accent); }
+        .hero-content .eyebrow { color: var(--accent); font-size: 1rem; }
 
         .hero-content p {
             font-size: 1.2rem;
@@ -410,6 +410,27 @@
         .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
         .gallery-item:hover img { transform: scale(1.08); }
 
+        /* Video Tour */
+        .video-tour { background: var(--bg-alt); }
+
+        .video-frame {
+            max-width: 380px;
+            width: 100%;
+            aspect-ratio: 478 / 850;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background: #000;
+        }
+
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         /* Reviews */
         .reviews { background: var(--bg-alt); }
 
@@ -425,6 +446,16 @@
         }
 
         .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.6rem; }
+
+        .review-video { text-align: center; margin-top: 3rem; }
+
+        .review-video-label {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .review-video-frame { aspect-ratio: 480 / 864; }
 
         .review-card { background: #FFFFFF; border: 1px solid var(--border); padding: 2rem 1.8rem; border-radius: 6px; }
 
@@ -677,8 +708,8 @@
                 </div>
                 <div class="amenity-item">
                     <span class="amenity-num">02</span>
-                    <h3>Room Service</h3>
-                    <p>Delicious meals delivered straight to your room, available 24/7.</p>
+                    <h3>Complimentary Breakfast</h3>
+                    <p>Start your day right with a complimentary breakfast included in your stay.</p>
                 </div>
                 <div class="amenity-item">
                     <span class="amenity-num">03</span>
@@ -754,6 +785,22 @@
                 <div class="gallery-item"><img src="images/room-family-suite.jpg" alt="Family suite"></div>
                 <div class="gallery-item"><img src="images/event-auditorium.jpg" alt="Auditorium seating for events"></div>
                 <div class="gallery-item"><img src="images/event-meeting-session.jpg" alt="Meeting in session at the event hall"></div>
+                <div class="gallery-item"><img src="images/guest-with-team.jpg" alt="Happy guests with the Hotel Gulati Suites team"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-tour" id="video-tour">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Video Tour</span>
+                <h2>See It For Yourself</h2>
+                <p>A quick walkthrough of Hotel Gulati Suites.</p>
+            </div>
+            <div class="video-frame">
+                <video controls playsinline preload="metadata" poster="images/hotel-exterior-twilight.jpg">
+                    <source src="images/hotel-video-tour.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
     </section>
@@ -784,6 +831,14 @@
                     <div class="stars">★★★★★</div>
                     <p>The best hotel experience in Washim. Comfortable rooms and exceptional service!</p>
                     <h4>Vikram Singh</h4>
+                </div>
+            </div>
+            <div class="review-video">
+                <p class="review-video-label">Hear it directly from a guest</p>
+                <div class="video-frame review-video-frame">
+                    <video controls playsinline preload="metadata">
+                        <source src="images/guest-review-video.mp4" type="video/mp4">
+                    </video>
                 </div>
             </div>
             <div class="reviews-cta">
@@ -837,7 +892,7 @@
                 </form>
                 <div class="enquiry-side">
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.631135913995!2d77.139608315083!3d20.11149898649489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4a5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sCivil%20Line%2C%20Washim%2C%20Maharashtra%20444505%2C%20India!5e0!3m2!1sen!2sin!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps?q=Hotel+Gulati+Suites,+Behind+Bus+Stand,+Civil+Line,+Washim,+Maharashtra+444505&output=embed" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                     <div class="location-card">
                         <p>Behind Bus Stand, Civil Line, Washim, Maharashtra, 444505, India</p>
