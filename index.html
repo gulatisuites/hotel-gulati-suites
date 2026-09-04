@@ -4,861 +4,942 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Gulati Suites - Luxury Hotel in Washim, Maharashtra</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Hotel Gulati Suites — a refined boutique stay in Washim, Maharashtra. Elegant rooms, event spaces, and warm hospitality.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --navy: #0B2545;
+            --navy-dark: #071A33;
+            --navy-light: #14375E;
+            --bg: #FFFFFF;
+            --bg-alt: #F4F6F9;
+            --text: #16212E;
+            --text-muted: #5B6B7C;
+            --border: #E2E6EA;
+            --accent: #C0392B;
+            --star: #E0A100;
+            --shadow: 0 12px 30px rgba(11, 37, 69, 0.1);
+            --shadow-lg: 0 24px 60px rgba(11, 37, 69, 0.16);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            color: #2B2520;
-            background-color: #F5E9DD;
-            line-height: 1.7;
-            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Header and Navigation */
+        h1, h2, h3, h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.01em;
+        }
+
+        a { font-family: inherit; }
+        img { display: block; }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.78rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .section-head h2 {
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-head p {
+            color: var(--text-muted);
+            font-size: 1.08rem;
+        }
+
+        section { padding: 6rem 2rem; }
+        .wrap { max-width: 1240px; margin: 0 auto; }
+
+        /* Header */
         header {
             position: fixed;
             width: 100%;
             top: 0;
-            background: rgba(137, 8, 8, 0.97);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             z-index: 1000;
-            transition: background 0.3s ease;
-        }
-
-        header.scrolled {
-            background: #800000;
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--border);
         }
 
         nav {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.8rem 2rem;
+            padding: 1.1rem 2rem;
         }
 
         .logo {
-            font-family: Arial, Helvetica, serif;
-            font-size: 2.5rem;
-            color: #f8f4f4;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--navy);
+            letter-spacing: -0.02em;
         }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
 
         .nav-links a {
-            margin-left: 2.5rem;
             text-decoration: none;
-            color: #fbfaf9;
-            font-weight: 400;
-            font-size: 1.1rem;
-            position: relative;
-            transition: color 0.3s ease;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.94rem;
+            transition: color 0.2s ease;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -6px;
-            left: 0;
-            background-color: #800000;
-            transition: width 0.3s ease;
+        .nav-links a:hover { color: var(--navy); }
+
+        .nav-cta {
+            background: var(--navy);
+            color: #FFFFFF !important;
+            padding: 0.65rem 1.4rem;
+            border-radius: 3px;
+            font-weight: 600;
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-cta:hover { background: var(--navy-light); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.4rem;
         }
 
-        .nav-links a:hover {
-            color: #800000;
-        }
+        .nav-toggle span { width: 24px; height: 2px; background: var(--navy); }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/PHOTO-2025-07-23-12-18-49 8.jpg') center/cover no-repeat;
-            display: flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #FFFFFF;
-            position: relative;
+            gap: 3.5rem;
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 8.5rem 2rem 3.5rem;
+            background: var(--bg-alt);
         }
 
         .hero-content {
-            animation: fadeIn 1.8s ease-in-out;
+            max-width: 480px;
         }
 
-        .hero-content h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            margin-bottom: 1.8rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-        }
+        .hero-content .eyebrow { color: var(--accent); }
 
         .hero-content p {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background: #800000;
-            color: #FFFFFF;
-            padding: 1.2rem 3rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
             font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            border: 2px solid #FFFFFF;
+            font-weight: 400;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin-bottom: 2.2rem;
         }
 
-        .cta-button:hover {
-            background: #660000;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        .hero-media {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 3060 / 2427;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
 
-        /* About Section */
-        .about {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 3rem 2rem;
-            text-align: center;
+        .hero-media video,
+        .hero-media .hero-poster {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-media video {
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .hero-media video.is-ready {
+            opacity: 1;
+        }
+
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.98rem;
+            border-radius: 3px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary { background: var(--accent); color: #FFFFFF; border-color: var(--accent); }
+        .btn-primary:hover { background: #A5271F; }
+
+        .btn-outline { border-color: var(--navy); color: var(--navy); }
+        .btn-outline:hover { background: var(--navy); color: #FFFFFF; }
+
+        /* Booking widget */
+        .booking-widget {
+            position: relative;
+            z-index: 3;
+            max-width: 1120px;
+            margin: -2.5rem auto 0;
             background: #FFFFFF;
-            border-radius: 20px;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
-            position: relative;
+            border-radius: 6px;
+            box-shadow: var(--shadow-lg);
+            padding: 1.6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 1.2rem;
+            align-items: end;
         }
 
-        .about::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #800000;
+        .booking-widget .field label {
+            display: block;
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
 
-        .about h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 1.8rem;
+        .booking-widget .field input {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--bg-alt);
         }
 
-        .about p {
-            max-width: 900px;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            color: #4A4039;
+        .booking-widget .field input:focus { outline: none; border-color: var(--navy); }
+
+        .booking-widget button {
+            background: var(--navy);
+            color: #FFFFFF;
+            border: none;
+            padding: 0.85rem 1.8rem;
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            white-space: nowrap;
         }
 
-        /* Rooms Section */
-        .rooms {
-            background: linear-gradient(180deg, #FFFFFF 0%, #F5E9DD 100%);
-            padding: 7rem 2rem;
+        .booking-widget button:hover { background: var(--navy-light); }
+
+        /* About */
+        .about { background: var(--bg); padding-top: 8rem; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
         }
 
-        .rooms h2 {
-            text-align: center;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 4rem;
-            position: relative;
+        .about-media img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: var(--shadow);
         }
 
-        .rooms h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
+        .about-copy h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 1.4rem; line-height: 1.2; }
+        .about-copy p { color: var(--text-muted); font-size: 1.04rem; margin-bottom: 1.2rem; }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 2rem;
+            margin-top: 2.2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
         }
+
+        .about-stats strong { display: block; font-size: 1.7rem; color: var(--navy); font-weight: 800; }
+        .about-stats span { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; }
+
+        /* Rooms */
+        .rooms { background: var(--bg-alt); }
 
         .room-grid {
-            max-width: 1400px;
-            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.8rem;
         }
 
         .room-card {
             background: #FFFFFF;
-            border-radius: 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
         }
 
-        .room-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        }
+        .room-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
 
-        .room-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
+        .room-card .img-wrap { position: relative; height: 220px; overflow: hidden; }
 
-        .room-card:hover img {
-            transform: scale(1.08);
-        }
+        .room-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .room-card:hover img { transform: scale(1.06); }
 
-        .room-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            padding: 1.8rem;
-            color: #800000;
-        }
-
-        .room-card p {
-            padding: 0 1.8rem 1.8rem;
-            color: #4A4039;
-            font-size: 1.1rem;
-        }
-
-        /* Events Section */
-        .events {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .events h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        .events h2::after {
-            content: '';
+        .room-badge {
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
+            top: 0.9rem;
+            left: 0.9rem;
+            background: var(--accent);
+            color: #FFFFFF;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.7rem;
+            border-radius: 3px;
         }
 
-        .events p {
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            font-size: 1.3rem;
-            color: #4A4039;
+        .room-card .room-body { padding: 1.5rem; }
+        .room-card h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+        .room-card p { color: var(--text-muted); font-size: 0.94rem; margin-bottom: 1.1rem; }
+
+        .room-link {
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
 
-        .events-image {
-            max-width: 100%;
-            height: 500px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease;
-            border: 2px solid #F5E9DD;
-        }
+        .room-link:hover { color: var(--accent); }
 
-        .events-image:hover {
-            transform: scale(1.03);
-        }
+        /* Amenities */
+        .amenities { background: var(--bg); }
 
-        /* Gallery Section */
-        .gallery {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .gallery h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .gallery h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
-        }
-
-        .gallery-grid {
+        .amenities-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.4rem;
         }
+
+        .amenity-item {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.8rem 1.6rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .amenity-item:hover { border-color: var(--navy); box-shadow: var(--shadow); }
+
+        .amenity-num { display: block; font-weight: 800; color: var(--accent); font-size: 0.85rem; margin-bottom: 0.7rem; }
+        .amenity-item h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
+        .amenity-item p { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* Events */
+        .events { background: var(--bg-alt); }
+
+        .events-image { width: 100%; height: 460px; object-fit: cover; border-radius: 6px; box-shadow: var(--shadow); margin-bottom: 1.4rem; }
+
+        .events-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+
+        .events-strip-item { position: relative; height: 260px; border-radius: 6px; overflow: hidden; }
+        .events-strip-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .events-strip-item:hover img { transform: scale(1.06); }
+
+        .strip-caption {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            padding: 1.3rem 1.5rem;
+            background: linear-gradient(0deg, rgba(7,26,51,0.88) 0%, transparent 100%);
+        }
+
+        .strip-caption h4 { font-size: 1.05rem; color: #FFFFFF; margin-bottom: 0.2rem; }
+        .strip-caption span { font-size: 0.82rem; color: #C9D4DF; }
+
+        .events-cta { text-align: center; margin-top: 2.2rem; }
+
+        /* Gallery */
+        .gallery { background: var(--bg); }
+
+        .gallery-grid { columns: 4 220px; column-gap: 0.7rem; }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            break-inside: avoid;
+            margin-bottom: 0.7rem;
+            border-radius: 6px;
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+        .gallery-item img { width: 100%; height: auto; display: block; transition: transform 0.6s ease; }
+        .gallery-item:hover img { transform: scale(1.08); }
 
-        .gallery-item:hover img {
-            transform: scale(1.12);
-        }
+        /* Reviews */
+        .reviews { background: var(--bg-alt); }
 
-        .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .gallery-item:hover::after {
-            opacity: 1;
-        }
-
-        /* Amenities Section */
-        .amenities {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 3rem 2rem;
+        .reviews-cta {
             text-align: center;
-            background: #FFFFFF;
-            border-radius: 20px;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
         }
 
-        .amenities h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .amenities h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
-        }
-
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .amenity-item {
-            background: #F5E9DD;
-            padding: 2.2rem;
-            border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .amenity-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .amenity-item h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: #800000;
-            margin-bottom: 1rem;
-        }
-
-        .amenity-item p {
-            color: #4A4039;
-            font-size: 1.1rem;
-        }
-
-        /* Reviews Section */
-        .reviews {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .reviews h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .reviews h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
-        }
-
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .review-card {
-            background: #FFFFFF;
-            padding: 2.8rem;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-8px);
-        }
-
-        .review-card .stars {
-            color: #800000;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-
-        .review-card p {
-            font-style: italic;
-            color: #4A4039;
-            font-size: 1.2rem;
-        }
-
-        .review-card h4 {
-            margin-top: 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
-            color: #800000;
-            font-size: 1.2rem;
-        }
-
-        /* Map & Location Section */
-        .map-location {
-            max-width: 1400px;
-            margin: 7rem auto;
-            padding: 0 2rem;
-            text-align: center;
-        }
-
-        .map-location h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            color: #800000;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .map-location h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #800000;
-        }
-
-        .map-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2.5rem;
-            border: 2px solid #F5E9DD;
-        }
-
-        .map-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .location-details p {
-            font-size: 1.3rem;
-            color: #4A4039;
-            margin-bottom: 1rem;
-        }
-
-        .location-details a {
-            color: #800000;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
-        }
-
-        .location-details a:hover {
-            color: #660000;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #800000 0%, #660000 100%);
-            color: #FFFFFF;
-            padding: 7rem 2rem;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .contact h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: #FFFFFF;
-        }
-
-        .contact p {
-            font-size: 1.3rem;
+        .reviews-cta p {
+            color: var(--text-muted);
+            font-size: 1rem;
             margin-bottom: 1.2rem;
         }
 
-        .contact a {
-            color: #F5E9DD;
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s ease;
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.6rem; }
+
+        .review-card { background: #FFFFFF; border: 1px solid var(--border); padding: 2rem 1.8rem; border-radius: 6px; }
+
+        .review-card .stars { color: var(--star); font-size: 0.95rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+        .review-card p { color: var(--text); font-size: 0.98rem; margin-bottom: 1.2rem; }
+        .review-card h4 { font-weight: 700; color: var(--navy); font-size: 0.94rem; }
+
+        /* Enquiry + Map */
+        .enquiry { background: var(--bg); }
+
+        .enquiry-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: stretch; }
+
+        .enquiry-form { background: var(--bg-alt); border: 1px solid var(--border); padding: 2.5rem; border-radius: 6px; }
+        .enquiry-form h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .enquiry-form > p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.8rem; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+        .enquiry-form .field { margin-bottom: 1.1rem; }
+
+        .field label {
+            display: block; font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase;
+            color: var(--text-muted); font-weight: 700; margin-bottom: 0.5rem;
         }
 
-        .contact a:hover {
-            color: #FFFFFF;
+        .field input, .field textarea {
+            width: 100%; padding: 0.8rem 0.95rem; border: 1px solid var(--border); border-radius: 3px;
+            background: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--text);
         }
 
-        /* Footer */
-        footer {
-            background: #2B2520;
-            color: #F5E9DD;
-            text-align: center;
-            padding: 3rem;
-            font-size: 1.1rem;
+        .field input:focus, .field textarea:focus { outline: none; border-color: var(--navy); }
+        .field textarea { resize: vertical; min-height: 100px; }
+
+        .form-submit { width: 100%; justify-content: center; border: none; cursor: pointer; }
+        .form-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.9rem; text-align: center; }
+
+        .enquiry-side { display: flex; flex-direction: column; gap: 1.4rem; }
+
+        .map-container {
+            position: relative; padding-bottom: 56%; height: 0; overflow: hidden;
+            border-radius: 6px; box-shadow: var(--shadow); flex: 1; border: 1px solid var(--border);
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .map-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+        .location-card { background: var(--navy); color: #DCE4EC; padding: 1.8rem; border-radius: 6px; }
+        .location-card p { font-size: 0.95rem; margin-bottom: 0.8rem; }
+        .location-card a { color: #FFFFFF; text-decoration: none; font-weight: 600; }
+
+        /* Contact / Footer */
+        .contact { background: var(--navy); color: #DCE4EC; padding: 4rem 2rem 2.2rem; text-align: center; }
+
+        .contact-grid { display: flex; justify-content: center; gap: 2.8rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+
+        .contact-grid .item span.label {
+            display: block; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase;
+            color: #E8B84B; margin-bottom: 0.5rem; font-weight: 700;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-content h1 {
-                font-size: 4rem;
-            }
+        .contact-grid .item a, .contact-grid .item p { color: #FFFFFF; text-decoration: none; font-size: 1rem; }
 
-            .hero-content p {
-                font-size: 1.3rem;
-            }
+        footer { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.8rem; font-size: 0.88rem; color: #9FB0C2; }
 
-            .room-grid, .gallery-grid, .amenities-grid, .review-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            }
+        /* WhatsApp floating button */
+        .whatsapp-float {
+            position: fixed; bottom: 1.8rem; right: 1.8rem; width: 58px; height: 58px;
+            background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--shadow-lg); z-index: 1000; transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover { transform: scale(1.08); }
+        .whatsapp-float svg { width: 28px; height: 28px; }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .enquiry-layout { grid-template-columns: 1fr; }
+            .gallery-grid { columns: 2 220px; }
+            .events-strip { grid-template-columns: 1fr; }
+            .booking-widget { grid-template-columns: 1fr 1fr; margin-top: -2rem; }
+            .booking-widget button { grid-column: span 2; }
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
+            .nav-links {
+                position: fixed; top: 0; right: 0; height: 100vh; width: min(78%, 320px);
+                background: #FFFFFF; flex-direction: column; align-items: flex-start; justify-content: center;
+                gap: 1.6rem; padding: 2rem 2.2rem; transform: translateX(100%); transition: transform 0.35s ease;
+                box-shadow: -8px 0 30px rgba(0,0,0,0.1);
             }
-
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-
-            .nav-links a {
-                margin-left: 1.2rem;
-                font-size: 1rem;
-            }
-
-            .room-grid, .gallery-grid, .amenities-grid, .review-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .map-container {
-                padding-bottom: 75%;
-            }
-
-            .events-image {
-                height: 350px;
-            }
-
-            .about h2, .rooms h2, .events h2, .gallery h2, .amenities h2, .reviews h2, .map-location h2, .contact h2 {
-                font-size: 2.8rem;
-            }
+            .nav-links.open { transform: translateX(0); }
+            .nav-toggle { display: flex; }
+            section { padding: 4.5rem 1.3rem; }
+            .about { padding-top: 5.5rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-grid { gap: 1.6rem; }
+            .booking-widget { grid-template-columns: 1fr; margin-top: -1.5rem; padding: 1.3rem; }
+            .booking-widget button { grid-column: auto; }
+            .hero { grid-template-columns: 1fr; padding: 7rem 1.6rem 2.5rem; gap: 2rem; }
+            .hero-content { max-width: none; }
         }
 
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .nav-links a {
-                margin-left: 0.8rem;
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 1rem 2rem;
-                font-size: 1.1rem;
-            }
+            .btn-row { flex-direction: column; width: 100%; }
+            .btn { justify-content: center; }
+            .whatsapp-float { width: 50px; height: 50px; bottom: 1.1rem; right: 1.1rem; }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo"><b>Hotel Gulati Suites</b></div>
-            <div class="nav-links">
+            <div class="logo">Hotel Gulati <span>Suites</span></div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
                 <a href="#rooms">Rooms</a>
-                <a href="#events">Events</a>
                 <a href="#gallery">Gallery</a>
                 <a href="#amenities">Amenities</a>
                 <a href="#reviews">Reviews</a>
-                <a href="#map">Map</a>
-                <a href="#contact">Contact</a>
+                <a href="#enquiry">Contact</a>
+                <a href="#enquiry" class="nav-cta">Book Now</a>
             </div>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Welcome to Hotel Gulati Suites</h1>
-            <p>We Serve People</p>
-            <a href="#rooms" class="cta-button">Book Now</a>
+            <span class="eyebrow">Washim, Maharashtra</span>
+            <p>Thoughtfully appointed rooms, warm hospitality, and quiet elegance in the heart of Washim.</p>
+            <div class="btn-row">
+                <a href="#enquiry" class="btn btn-primary">Reserve Your Stay</a>
+                <a href="https://wa.me/919423127900?text=Hi%2C%20I'd%20like%20to%20enquire%20about%20a%20stay%20at%20Hotel%20Gulati%20Suites." target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
+            </div>
+        </div>
+        <div class="hero-media">
+            <!-- Drop a short MP4 clip in images/hero-video.mp4 and uncomment the <source> below to enable video. -->
+            <video autoplay muted loop playsinline poster="images/hotel-exterior-twilight.jpg">
+                <!-- <source src="images/hero-video.mp4" type="video/mp4"> -->
+            </video>
+            <img class="hero-poster" src="images/hotel-exterior-twilight.jpg" alt="Hotel Gulati Suites exterior">
         </div>
     </section>
 
-    <section class="events" id="events">
-        <h2>Hotel Pictures</h2>
-        <p>Host your special events at Hotel Gulati Suites, where elegance meets functionality. Our versatile venues are perfect for weddings, corporate meetings, and memorable celebrations, with personalized services to make every occasion unforgettable.</p>
-        <img src="images/PHOTO-2025-07-23-12-18-49 8.jpg" alt="Event Venue" class="events-image">
-    </section>
+    <form class="booking-widget" id="bookingWidget">
+        <div class="field">
+            <label for="w-checkin">Check-In</label>
+            <input type="date" id="w-checkin" required>
+        </div>
+        <div class="field">
+            <label for="w-checkout">Check-Out</label>
+            <input type="date" id="w-checkout" required>
+        </div>
+        <div class="field">
+            <label for="w-guests">Guests</label>
+            <input type="number" id="w-guests" min="1" value="2">
+        </div>
+        <button type="submit">Check Availability</button>
+    </form>
 
     <section class="about" id="about">
-        <h2>About Hotel Gulati Suites</h2>
-        <p>Located in the heart of Washim, Maharashtra, Hotel Gulati Suites offers a luxurious and warm retreat for travelers seeking comfort and elegance. Our hotel combines modern amenities with personalized service, ensuring every guest feels at home. Whether you're here for business or leisure, we strive to make your stay unforgettable.</p>
+        <div class="wrap about-grid">
+            <div class="about-media">
+                <img src="images/reception-desk.jpg" alt="Hotel Gulati Suites reception">
+            </div>
+            <div class="about-copy">
+                <span class="eyebrow">About Us</span>
+                <h2>Comfort, Character, and Genuine Hospitality</h2>
+                <p>Located in the heart of Washim, Maharashtra, Hotel Gulati Suites offers a warm, elegant retreat for travelers seeking comfort without compromise. Every room is considered, every detail attended to.</p>
+                <p>Whether you're here for business or leisure, our team is dedicated to making your stay effortless and memorable — from the moment you arrive to the moment you check out.</p>
+                <div class="about-stats">
+                    <div>
+                        <strong>4</strong>
+                        <span>Room Types</span>
+                    </div>
+                    <div>
+                        <strong>24/7</strong>
+                        <span>Front Desk</span>
+                    </div>
+                    <div>
+                        <strong>5★</strong>
+                        <span>Guest Rated</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="rooms" id="rooms">
-        <h2>Our Rooms</h2>
-        <div class="room-grid">
-            <div class="room-card">
-                <img src="images/PHOTO-2025-07-23-12-18-48.jpg" alt="Deluxe Room">
-                <h3>Deluxe Room</h3>
-                <p>Spacious and elegant, our Deluxe Rooms offer a cozy ambiance with modern amenities.</p>
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Accommodation</span>
+                <h2>Our Rooms &amp; Suites</h2>
+                <p>Each room is designed for rest and comfort, with modern amenities woven into a warm, welcoming setting.</p>
             </div>
-            <div class="room-card">
-                <img src="images/PHOTO-2025-07-23-12-18-49.jpg" alt="Executive Suite">
-                <h3>Executive Suite</h3>
-                <p>Perfect for business travelers, with a dedicated workspace and luxurious comfort.</p>
-            </div>
-            <div class="room-card">
-                <img src="images/PHOTO-2025-07-23-12-18-48 3.jpg" alt="Family Suite">
-                <h3>Family Suite</h3>
-                <p>Ideal for families, offering ample space and a warm, welcoming atmosphere.</p>
-            </div>
-            <div class="room-card">
-                <img src="images/PHOTO-2025-07-23-12-18-48 2.jpg" alt="Delux Triple Suite">
-                <h3>Delux Triple Suite</h3>
-                <p>Ideal for three occupancy, offering ample space and a warm, welcoming atmosphere.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="events" id="events">
-        <h2>Weddings, Meetings, and Events</h2>
-        <p>Host your special events at Hotel Gulati Suites, where elegance meets functionality. Our versatile venues are perfect for weddings, corporate meetings, and memorable celebrations, with personalized services to make every occasion unforgettable.</p>
-        <img src="images/PHOTO-2025-07-23-12-18-49 4.jpg" alt="Event Venue" class="events-image">
-    </section>
-
-    <section class="gallery" id="gallery">
-        <h2>Explore Hotel Gulati Suites</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-48 2.jpg" alt="Hotel Lobby">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-48 3.jpg" alt="Deluxe Room Interior">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-50 2.jpg" alt="Hotel Exterior">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-49 2.jpg" alt="Dining Area">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-49 3.jpg" alt="Executive Suite">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-49 4.jpg" alt="Family Suite">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-49 5.jpg" alt="Family Suite">
-            </div>
-            <div class="gallery-item">
-                <img src="images/PHOTO-2025-07-23-12-18-50 3.jpg" alt="Family Suite">
+            <div class="room-grid">
+                <div class="room-card">
+                    <div class="img-wrap">
+                        <span class="room-badge">Popular</span>
+                        <img src="images/room-deluxe-double.jpg" alt="Deluxe Room">
+                    </div>
+                    <div class="room-body">
+                        <h3>Deluxe Room</h3>
+                        <p>Spacious and elegant, our Deluxe Rooms offer a cozy ambiance with modern amenities.</p>
+                        <a href="#enquiry" class="room-link">Check Rates &rarr;</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="img-wrap"><img src="images/room-twin-beds.jpg" alt="Executive Suite"></div>
+                    <div class="room-body">
+                        <h3>Executive Suite</h3>
+                        <p>Perfect for business travelers, with a dedicated workspace and luxurious comfort.</p>
+                        <a href="#enquiry" class="room-link">Check Rates &rarr;</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="img-wrap"><img src="images/room-family-suite.jpg" alt="Family Suite"></div>
+                    <div class="room-body">
+                        <h3>Family Suite</h3>
+                        <p>Ideal for families, offering ample space and a warm, welcoming atmosphere.</p>
+                        <a href="#enquiry" class="room-link">Check Rates &rarr;</a>
+                    </div>
+                </div>
+                <div class="room-card">
+                    <div class="img-wrap"><img src="images/room-deluxe-triple.jpg" alt="Deluxe Triple Suite"></div>
+                    <div class="room-body">
+                        <h3>Deluxe Triple Suite</h3>
+                        <p>Ideal for three occupancy, offering ample space and a warm, welcoming atmosphere.</p>
+                        <a href="#enquiry" class="room-link">Check Rates &rarr;</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="amenities" id="amenities">
-        <h2>Our Amenities</h2>
-        <div class="amenities-grid">
-            <div class="amenity-item">
-                <h3>Air-Conditioned Rooms</h3>
-                <p>Enjoy a comfortable stay with climate-controlled rooms designed for your relaxation.</p>
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Facilities</span>
+                <h2>Our Amenities</h2>
+                <p>Everything you need for a comfortable, connected stay.</p>
             </div>
-            <div class="amenity-item">
-                <h3>Room Service</h3>
-                <p>Indulge in delicious meals delivered straight to your room, available 24/7.</p>
+            <div class="amenities-grid">
+                <div class="amenity-item">
+                    <span class="amenity-num">01</span>
+                    <h3>Air-Conditioned Rooms</h3>
+                    <p>Climate-controlled rooms designed for your relaxation.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-num">02</span>
+                    <h3>Room Service</h3>
+                    <p>Delicious meals delivered straight to your room, available 24/7.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-num">03</span>
+                    <h3>24/7 Parking</h3>
+                    <p>Secure and convenient parking available around the clock.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-num">04</span>
+                    <h3>Wifi</h3>
+                    <p>High-speed internet access throughout the hotel.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-num">05</span>
+                    <h3>On-Site Restaurant</h3>
+                    <p>Exquisite dishes crafted by our chefs at our in-house dining venue.</p>
+                </div>
+                <div class="amenity-item">
+                    <span class="amenity-num">06</span>
+                    <h3>Lift &amp; Accessibility</h3>
+                    <p>Smooth, reliable lift service for easy access to every floor.</p>
+                </div>
             </div>
-            <div class="amenity-item">
-                <h3>24/7 Parking</h3>
-                <p>Secure and convenient parking available around the clock for all guests.</p>
+        </div>
+    </section>
+
+    <section class="events" id="events">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Celebrations</span>
+                <h2>Weddings, Meetings &amp; Events</h2>
+                <p>Host your special events at Hotel Gulati Suites, where elegance meets functionality. Our versatile venues are perfect for weddings, corporate meetings, and memorable celebrations, with personalized service to make every occasion unforgettable.</p>
             </div>
-            <div class="amenity-item">
-                <h3>Wifi</h3>
-                <p>Stay connected with high-speed internet access throughout the hotel.</p>
+            <img src="images/event-hall-decorated.jpg" alt="Decorated event hall" class="events-image">
+            <div class="events-strip">
+                <div class="events-strip-item">
+                    <img src="images/event-auditorium.jpg" alt="Auditorium seating for large events">
+                    <div class="strip-caption">
+                        <h4>Auditorium Seating</h4>
+                        <span>Large gatherings &amp; celebrations</span>
+                    </div>
+                </div>
+                <div class="events-strip-item">
+                    <img src="images/event-meeting-session.jpg" alt="Conference and meeting session">
+                    <div class="strip-caption">
+                        <h4>Conferences &amp; Meetings</h4>
+                        <span>Corporate-ready setup</span>
+                    </div>
+                </div>
             </div>
-            <div class="amenity-item">
-                <h3>On-Site Restaurant</h3>
-                <p>Savor exquisite dishes crafted by our chefs at our in-house dining venue.</p>
+            <div class="events-cta">
+                <a href="https://wa.me/919423127900?text=Hi%2C%20I'd%20like%20to%20enquire%20about%20hosting%20an%20event%20at%20Hotel%20Gulati%20Suites." target="_blank" rel="noopener" class="btn btn-primary">Enquire About Events</a>
             </div>
-            <div class="amenity-item">
-                <h3>Lift/Elevator - Accessibility Services</h3>
-                <p>WEnjoy the convenience of our smooth and reliable lift service for easy access to every floor</p>
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Gallery</span>
+                <h2>Explore Hotel Gulati Suites</h2>
+                <p>A closer look at our rooms, spaces, and surroundings.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/lobby-entrance.jpg" alt="Hotel entrance and lobby"></div>
+                <div class="gallery-item"><img src="images/hotel-exterior-day.jpg" alt="Hotel exterior, daytime"></div>
+                <div class="gallery-item"><img src="images/dining-spread.jpg" alt="Dining spread"></div>
+                <div class="gallery-item"><img src="images/room-deluxe-tv.jpg" alt="Room with entertainment screen"></div>
+                <div class="gallery-item"><img src="images/dining-thali.jpg" alt="Thali meal"></div>
+                <div class="gallery-item"><img src="images/room-twin-wide.jpg" alt="Spacious twin room"></div>
+                <div class="gallery-item"><img src="images/event-hall-empty.jpg" alt="Event hall"></div>
+                <div class="gallery-item"><img src="images/reception-desk.jpg" alt="Hotel reception desk"></div>
+                <div class="gallery-item"><img src="images/event-hall-decorated.jpg" alt="Decorated hall for a wedding event"></div>
+                <div class="gallery-item"><img src="images/room-family-suite.jpg" alt="Family suite"></div>
+                <div class="gallery-item"><img src="images/event-auditorium.jpg" alt="Auditorium seating for events"></div>
+                <div class="gallery-item"><img src="images/event-meeting-session.jpg" alt="Meeting in session at the event hall"></div>
             </div>
         </div>
     </section>
 
     <section class="reviews" id="reviews">
-        <h2>What Our Guests Say</h2>
-        <div class="review-grid">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"An absolutely delightful stay! The staff was incredibly welcoming, and the rooms were spotless and luxurious."</p>
-                <h4>– David Mecham - Arizona, USA</h4>
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Testimonials</span>
+                <h2>What Our Guests Say</h2>
             </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"Hotel Gulati Suites exceeded all expectations. The ambiance is warm, and the service is top-notch!"</p>
-                <h4>– Rajesh Patel</h4>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>An absolutely delightful stay! The staff was incredibly welcoming, and the rooms were spotless and luxurious.</p>
+                    <h4>David Mecham &ndash; Arizona, USA</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>Hotel Gulati Suites exceeded all expectations. The ambiance is warm, and the service is top-notch!</p>
+                    <h4>Rajesh Patel</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>A perfect getaway. The attention to detail and hospitality made our family vacation unforgettable.</p>
+                    <h4>Anjali Desai</h4>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>The best hotel experience in Washim. Comfortable rooms and exceptional service!</p>
+                    <h4>Vikram Singh</h4>
+                </div>
             </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"A perfect getaway. The attention to detail and hospitality made our family vacation unforgettable."</p>
-                <h4>– Anjali Desai</h4>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>"The best hotel experience in Washim. Comfortable rooms and exceptional service!"</p>
-                <h4>– Vikram Singh</h4>
+            <div class="reviews-cta">
+                <p>Read more guest reviews, or leave your own, on Google.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Gulati+Suites+Washim+Maharashtra" target="_blank" rel="noopener" class="btn btn-outline">Read Reviews on Google</a>
             </div>
         </div>
     </section>
 
-    <section class="map-location" id="map">
-        <h2>Map & Location</h2>
-        <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.631135913995!2d77.139608315083!3d20.11149898649489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4a5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sCivil%20Line%2C%20Washim%2C%20Maharashtra%20444505%2C%20India!5e0!3m2!1sen!2sin!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="location-details">
-            <p>Behind Bus Stand, Civil Line, Washim, Maharashtra, 444505, India</p>
-            <p>Phone: <a href="tel:+918055040400">+91 8055040400, +91 7875040400</a></p>
+    <section class="enquiry" id="enquiry">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Reservations</span>
+                <h2>Plan Your Stay</h2>
+                <p>Send us your details and we'll get back to you on WhatsApp to confirm your booking.</p>
+            </div>
+            <div class="enquiry-layout">
+                <form class="enquiry-form" id="enquiryForm">
+                    <h3>Enquiry Form</h3>
+                    <p>Fill in your details below — it opens a prefilled WhatsApp message to our front desk.</p>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="field">
+                            <label for="checkin">Check-In</label>
+                            <input type="date" id="checkin">
+                        </div>
+                        <div class="field">
+                            <label for="checkout">Check-Out</label>
+                            <input type="date" id="checkout">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" min="1" value="1">
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Room preference, special requests, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit">Send Enquiry via WhatsApp</button>
+                    <p class="form-note">This opens WhatsApp with your details filled in — you send the final message yourself.</p>
+                </form>
+                <div class="enquiry-side">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.631135913995!2d77.139608315083!3d20.11149898649489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6a4a5a5a5a5a5%3A0x5a5a5a5a5a5a5a5a!2sCivil%20Line%2C%20Washim%2C%20Maharashtra%20444505%2C%20India!5e0!3m2!1sen!2sin!4v1697051234567" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="location-card">
+                        <p>Behind Bus Stand, Civil Line, Washim, Maharashtra, 444505, India</p>
+                        <p>Phone: <a href="tel:+918055040400">+91 8055040400</a> &middot; <a href="tel:+917875040400">+91 7875040400</a></p>
+                        <p>Email: <a href="mailto:gulatisuites@gmail.com">gulatisuites@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="contact" id="contact">
-        <h2>Contact Us</h2>
-        <p>Behind Bus Stand, Civil Line, Washim, Maharashtra, 444505, India</p>
-        <p>Phone: <a href="tel:+918055040400">+91 8055040400, +91 7875040400</a></p>
-        <p>Owner Phone Number: <a href="tel:+919423127900">+91 9423127900</a></p>
-        <p>Email: <a href="mailto:gulatisuites@gmail.com">gulatisuites@gmail.com</a></p>
-        <p>Website: <a href="http://www.hotelgulatisuites.in" target="_blank">www.hotelgulatisuites.in</a></p>
+        <div class="wrap">
+            <div class="contact-grid">
+                <div class="item">
+                    <span class="label">Address</span>
+                    <p>Behind Bus Stand, Civil Line, Washim, Maharashtra, 444505</p>
+                </div>
+                <div class="item">
+                    <span class="label">Reservations</span>
+                    <a href="tel:+918055040400">+91 8055040400</a><br>
+                    <a href="tel:+917875040400">+91 7875040400</a>
+                </div>
+                <div class="item">
+                    <span class="label">Owner</span>
+                    <a href="tel:+919423127900">+91 9423127900</a>
+                </div>
+                <div class="item">
+                    <span class="label">Email</span>
+                    <a href="mailto:gulatisuites@gmail.com">gulatisuites@gmail.com</a>
+                </div>
+                <div class="item">
+                    <span class="label">Website</span>
+                    <a href="http://www.hotelgulatisuites.in" target="_blank">www.hotelgulatisuites.in</a>
+                </div>
+            </div>
+            <footer>
+                <p>&copy; <span id="currentYear">2026</span> Hotel Gulati Suites. All rights reserved.</p>
+            </footer>
+        </div>
     </section>
 
-    <footer>
-        <p>© 2025 Gulati Suites. All rights reserved.</p>
-    </footer>
+    <a class="whatsapp-float" href="https://wa.me/919423127900?text=Hi%2C%20I'd%20like%20to%20enquire%20about%20a%20stay%20at%20Hotel%20Gulati%20Suites." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.396.702 4.63 1.92 6.507L4 29l7.68-1.878A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.818c-1.99 0-3.85-.55-5.44-1.5l-.39-.23-4.56 1.115 1.15-4.44-.253-.406A9.77 9.77 0 0 1 5.182 15c0-5.973 4.85-10.818 10.822-10.818S26.826 9.027 26.826 15 21.976 24.818 16.004 24.818Zm5.98-8.11c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.52-.164-.74.164-.22.328-.85 1.066-1.043 1.285-.192.22-.384.246-.712.082-.328-.164-1.386-.51-2.64-1.628-.976-.87-1.635-1.945-1.827-2.273-.192-.328-.02-.505.144-.668.148-.147.328-.383.492-.575.164-.192.219-.328.328-.547.11-.219.055-.41-.027-.574-.082-.164-.74-1.78-1.014-2.437-.267-.64-.538-.554-.74-.564l-.63-.011c-.219 0-.575.082-.876.41-.3.328-1.15 1.124-1.15 2.74s1.178 3.18 1.342 3.398c.164.219 2.318 3.54 5.615 4.965.785.339 1.397.542 1.874.694.787.25 1.503.215 2.07.13.632-.094 1.94-.793 2.213-1.558.273-.766.273-1.422.191-1.558-.082-.137-.3-.219-.629-.383Z"/>
+        </svg>
+    </a>
 
     <script>
-        // Add scrolled class to header for styling when scrolling
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // Only reveal the hero video once it actually has a working source —
+        // otherwise the poster image underneath stays visible.
+        const heroVideo = document.querySelector('.hero video');
+        if (heroVideo && heroVideo.querySelector('source')) {
+            heroVideo.addEventListener('canplay', () => heroVideo.classList.add('is-ready'));
+        }
+
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Top booking widget hands off into the main enquiry form
+        document.getElementById('bookingWidget').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('checkin').value = document.getElementById('w-checkin').value;
+            document.getElementById('checkout').value = document.getElementById('w-checkout').value;
+            document.getElementById('guests').value = document.getElementById('w-guests').value;
+            document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('name').focus();
+        });
+
+        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const guests = document.getElementById('guests').value;
+            const message = document.getElementById('message').value.trim();
+
+            const formatDate = (iso) => {
+                if (!iso) return '';
+                const d = new Date(iso + 'T00:00:00');
+                return d.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            };
+
+            let text = `Hi, I'm ${name} and I'd like to enquire about a stay at Hotel Gulati Suites`;
+            if (checkin && checkout) {
+                text += ` from ${formatDate(checkin)} to ${formatDate(checkout)}`;
+            } else if (checkin) {
+                text += ` starting ${formatDate(checkin)}`;
             }
+            if (guests) text += ` for ${guests} guest${Number(guests) === 1 ? '' : 's'}`;
+            text += `.\n\nPhone: ${phone}`;
+            if (message) text += `\nNote: ${message}`;
+
+            const url = `https://wa.me/919423127900?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
         });
     </script>
 </body>
