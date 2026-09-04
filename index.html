@@ -99,6 +99,7 @@
             font-weight: 800;
             color: var(--navy);
             letter-spacing: -0.02em;
+            white-space: nowrap;
         }
 
         .logo span { color: var(--accent); }
@@ -145,7 +146,7 @@
             gap: 3.5rem;
             max-width: 1320px;
             margin: 0 auto;
-            padding: 8.5rem 2rem 3.5rem;
+            padding: calc(var(--header-h, 90px) + 2.5rem) 2rem 3.5rem;
             background: var(--bg-alt);
         }
 
@@ -553,7 +554,7 @@
             .contact-grid { gap: 1.6rem; }
             .booking-widget { grid-template-columns: 1fr; margin-top: -1.5rem; padding: 1.3rem; }
             .booking-widget button { grid-column: auto; }
-            .hero { grid-template-columns: 1fr; padding: 7rem 1.6rem 2.5rem; gap: 2rem; }
+            .hero { grid-template-columns: 1fr; padding: calc(var(--header-h, 90px) + 2rem) 1.6rem 2.5rem; gap: 2rem; }
             .hero-content { max-width: none; }
         }
 
@@ -942,6 +943,22 @@
     </a>
 
     <script>
+        // The header's height varies by device (e.g. the logo can wrap to two
+        // lines on some Android browsers but not others), so measure it for
+        // real instead of guessing a fixed value — the hero's top padding
+        // reads this variable to always clear the header, however tall it is.
+        const headerEl = document.querySelector('header');
+        function syncHeaderHeight() {
+            document.documentElement.style.setProperty('--header-h', headerEl.offsetHeight + 'px');
+        }
+        syncHeaderHeight();
+        window.addEventListener('resize', syncHeaderHeight);
+        window.addEventListener('orientationchange', syncHeaderHeight);
+        window.addEventListener('load', syncHeaderHeight);
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(syncHeaderHeight);
+        }
+
         // Only reveal the hero video once it actually has a working source —
         // otherwise the poster image underneath stays visible.
         const heroVideo = document.querySelector('.hero video');
